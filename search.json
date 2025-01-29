@@ -21,6 +21,13 @@
     "text": "This is a post with executable code."
   },
   {
+    "objectID": "posts/tutorial/index.html",
+    "href": "posts/tutorial/index.html",
+    "title": "myblog",
+    "section": "",
+    "text": "Title: “Penguins Data Visualization Tutorial”\nAuthor: “Cara Burgess”\nDate: “2025-1-28”\ncategories: [tutorial]\nToday we will be going through a tutorial of how to create a certain data visualization for the Palmer Penguins dataset. This dataset contains data from different penguins belonging to 3 different species. Variables for each penguin, such as clutch completion, body mass, and sex are recorded. For this particular tutorial we want to look at clutch completion rates for each penguin species. The clutch completion column contains either “Yes” or “No” and records if the penguin’s nest has a full clutch of eggs.\nFirst, we want to import the libraries we wil need: pandas and matplotlib\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\nThen we want to read in the dataset as a dataframe.\n\nurl = \"https://raw.githubusercontent.com/pic16b-ucla/24W/main/datasets/palmer_penguins.csv\"\npenguins = pd.read_csv(url)\n\nWe can now preview the dataset by looking at the first few rows.\n\npenguins.head()\n\nWe now want to modify the dataset to group it by the Species and Clutch completion columns. We use the groupby function to do this. We then use the size functions to count the number of rows/observations in each group, and the unstack function to separate the “Yes” and “No” counts.\n\npenguins_mod = penguins.groupby(['Species', 'Clutch Completion']).size().unstack()\n\nWe now use matplotlib to plot a barchart that shows the clutch completion rates for each species of penguins. We define the title, x-axis label, and y-label. Finally, we display the graph.\n\npenguins_mod.plot(kind='bar')\nplt.title(\"Clutch Completion vs Penguin Species\")\nplt.xlabel(\"Penguin Species\")\nplt.ylabel(\"Clutch Completion Count\")\nplt.show()\n\nWe have now finished our data visualization project!"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "myblog",
